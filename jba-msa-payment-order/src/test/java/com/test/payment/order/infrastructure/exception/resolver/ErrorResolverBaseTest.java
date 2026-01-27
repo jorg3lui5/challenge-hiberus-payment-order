@@ -1,6 +1,6 @@
 package com.test.payment.order.infrastructure.exception.resolver;
 
-import com.test.payment.order.infrastructure.input.adapter.rest.config.PropertiesTest;
+import com.test.payment.order.infrastructure.input.adapter.rest.config.Properties;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.Accessors;
@@ -29,7 +29,7 @@ abstract class ErrorResolverBaseTest<E, R extends ErrorResolver<E>> {
   @Autowired
   private R errorResolver;
   @Autowired
-  private PropertiesTest propertiesTest;
+  private Properties properties;
 
   protected void mockServerWebExchangeRequest(final String result) {
     when(serverWebExchange.getRequest())

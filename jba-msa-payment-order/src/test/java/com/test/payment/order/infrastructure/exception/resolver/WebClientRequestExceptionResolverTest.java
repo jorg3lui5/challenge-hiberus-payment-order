@@ -7,11 +7,13 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.ContextConfiguration;
+
 import java.net.URISyntaxException;
 
 import static com.test.payment.order.util.Constants.CLIENT_ERROR;
 import static com.test.payment.order.util.MockDataUtils.URL_TEST;
 import static com.test.payment.order.util.TestUtils.buildWebClientRequestException;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
@@ -30,5 +32,7 @@ class WebClientRequestExceptionResolverTest extends ErrorResolverTest<WebClientR
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
                 URL_TEST
         );
+        assertNotNull(exception);
+
     }
 }

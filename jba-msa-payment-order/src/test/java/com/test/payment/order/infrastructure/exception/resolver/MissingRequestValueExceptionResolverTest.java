@@ -1,6 +1,6 @@
 package com.test.payment.order.infrastructure.exception.resolver;
 
-import com.test.payment.order.infrastructure.input.adapter.rest.config.PropertiesTest;
+import com.test.payment.order.infrastructure.input.adapter.rest.config.Properties;
 import com.test.payment.order.util.InfrastructureTestUtils;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,7 +15,7 @@ import static com.test.payment.order.util.MockDataUtils.URL_TEST;
 @ExtendWith(MockitoExtension.class)
 @ContextConfiguration(classes = {MissingRequestValueExceptionResolver.class})
 @ImportAutoConfiguration({
-        PropertiesTest.class
+        Properties.class
 })
 @SuppressWarnings("java:S2699")
 class MissingRequestValueExceptionResolverTest

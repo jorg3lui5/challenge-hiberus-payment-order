@@ -3,7 +3,7 @@ package com.test.payment.order.infrastructure.exception.resolver;
 import com.test.payment.order.infrastructure.exception.custom.ParsingJsonException;
 import com.test.payment.order.infrastructure.input.adapter.rest.bs.bean.ErrorList;
 import com.test.payment.order.infrastructure.input.adapter.rest.bs.bean.ErrorModel;
-import com.test.payment.order.infrastructure.input.adapter.rest.config.PropertiesTest;
+import com.test.payment.order.infrastructure.input.adapter.rest.config.Properties;
 import com.test.payment.order.util.JsonSerializer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ import static com.test.payment.order.util.MockDataUtils.URL_TEST;
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
 @ContextConfiguration(classes = {FailureExceptionResolver.class})
-@ImportAutoConfiguration({PropertiesTest.class})
+@ImportAutoConfiguration({Properties.class})
 @SuppressWarnings("java:S2699")
 class FailureExceptionResolverTest extends ErrorBadRequestResolverTest<FailureExceptionResolver> {
 

@@ -2,14 +2,11 @@ package com.test.payment.order.infrastructure.input.adapter.rest.impl;
 
 
 import com.test.payment.order.application.input.port.PaymentOrderService;
-import com.test.payment.order.domain.PaymentOrder;
 import com.test.payment.order.infrastructure.exception.ErrorResolverHandler;
 import com.test.payment.order.infrastructure.input.adapter.rest.bs.bean.*;
-import com.test.payment.order.infrastructure.input.adapter.rest.config.PropertiesTest;
 import com.test.payment.order.infrastructure.input.adapter.rest.mapper.PaymentOrderMapper;
 import com.test.payment.order.infrastructure.input.adapter.rest.mapper.PaymentOrderMapperImpl;
 import com.test.payment.order.util.MockDataUtils;
-import org.json.JSONException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
@@ -19,16 +16,14 @@ import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
-import org.springframework.test.web.reactive.server.EntityExchangeResult;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Mono;
+
 import static com.test.payment.order.util.MockDataUtils.PAYMENT_ORDER_ID_STRING;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
-import static org.skyscreamer.jsonassert.JSONAssert.assertEquals;
 
 @WebFluxTest(PaymentOrderController.class)
 @ImportAutoConfiguration({

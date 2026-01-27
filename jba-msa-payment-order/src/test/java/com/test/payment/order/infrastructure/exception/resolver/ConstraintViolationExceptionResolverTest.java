@@ -1,6 +1,6 @@
 package com.test.payment.order.infrastructure.exception.resolver;
 
-import com.test.payment.order.infrastructure.input.adapter.rest.config.PropertiesTest;
+import com.test.payment.order.infrastructure.input.adapter.rest.config.Properties;
 import com.test.payment.order.util.DummyConstraintViolation;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
@@ -11,8 +11,10 @@ import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.ContextConfiguration;
+
 import java.util.HashSet;
 import java.util.Set;
+
 import static com.test.payment.order.util.Constants.BAD_INPUT;
 import static com.test.payment.order.util.MockDataUtils.URL_TEST;
 
@@ -20,7 +22,7 @@ import static com.test.payment.order.util.MockDataUtils.URL_TEST;
 @ExtendWith(MockitoExtension.class)
 @ContextConfiguration(classes = {ConstraintViolationExceptionResolver.class})
 @ImportAutoConfiguration({
-  PropertiesTest.class
+  Properties.class
 })
 @SuppressWarnings("java:S2699")
 class ConstraintViolationExceptionResolverTest

@@ -1,7 +1,7 @@
 package com.test.payment.order.infrastructure.exception.resolver;
 
 import com.test.payment.order.infrastructure.input.adapter.rest.bs.bean.ErrorModel;
-import com.test.payment.order.infrastructure.input.adapter.rest.config.PropertiesTest;
+import com.test.payment.order.infrastructure.input.adapter.rest.config.Properties;
 import com.test.payment.order.util.ErrorUtils;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.notNullValue;
 
 @ExtendWith(MockitoExtension.class)
 @ImportAutoConfiguration({
-        PropertiesTest.class
+        Properties.class
 })
 
 abstract class ErrorResolverTest<R extends ErrorResolver<ErrorModel>>

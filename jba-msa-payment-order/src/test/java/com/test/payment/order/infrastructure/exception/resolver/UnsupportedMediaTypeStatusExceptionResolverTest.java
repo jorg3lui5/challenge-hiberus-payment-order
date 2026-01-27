@@ -9,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.server.UnsupportedMediaTypeStatusException;
 
 import static com.test.payment.order.util.MockDataUtils.URL_TEST;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 @SpringBootTest
@@ -29,6 +30,8 @@ class UnsupportedMediaTypeStatusExceptionResolverTest extends ErrorResolverTest<
                 HttpStatus.UNSUPPORTED_MEDIA_TYPE.value(),
                 URL_TEST
         );
+        assertNotNull(exception.getMessage());
+
     }
 
     @Test

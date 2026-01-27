@@ -11,9 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.ContextConfiguration;
+
 import static com.test.payment.order.util.Constants.UNEXPECTED_ERROR;
 import static com.test.payment.order.util.MockDataUtils.URL_TEST;
 import static com.test.payment.order.util.TestUtils.buildWebClientResponseException;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
@@ -36,6 +38,8 @@ class WebClientResponseExceptionResolverTest extends ErrorResolverTest<WebClient
             HttpStatus.INTERNAL_SERVER_ERROR.value(),
             URL_TEST
     );
+    assertNotNull(exception.getMessage());
+
   }
 
   @Test

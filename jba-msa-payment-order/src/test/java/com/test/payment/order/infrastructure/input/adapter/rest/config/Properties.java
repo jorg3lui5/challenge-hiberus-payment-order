@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @Generated
 @Configuration
 @ConfigurationProperties
-public class PropertiesTest {
+public class Properties {
   @Value("${test.payment-order.orders.path}")
   private String path;
 

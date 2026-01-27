@@ -1,7 +1,6 @@
 package com.test.payment.order.application.service;
 
 import com.test.payment.order.application.output.port.PaymentOrderOutputPort;
-import com.test.payment.order.application.service.PaymentOrderServiceImp;
 import com.test.payment.order.infrastructure.input.adapter.rest.mapper.PaymentOrderMapper;
 import com.test.payment.order.infrastructure.input.adapter.rest.mapper.PaymentOrderMapperImpl;
 import com.test.payment.order.util.MockDataUtils;
@@ -13,14 +12,12 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.verify;

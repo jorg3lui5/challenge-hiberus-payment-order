@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.test.context.ContextConfiguration;
 
 import static com.test.payment.order.util.MockDataUtils.URL_TEST;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 @SpringBootTest
@@ -25,5 +26,8 @@ class NotFoundErrorResolverTest extends ErrorResolverTest<NotFoundErrorResolver>
                 HttpStatus.NOT_FOUND.value(),
                 URL_TEST
         );
+        assertNotNull(exception.getMessage());
+
+
     }
 }

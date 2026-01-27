@@ -1,6 +1,6 @@
 package com.test.payment.order.infrastructure.exception.resolver;
 
-import com.test.payment.order.infrastructure.input.adapter.rest.config.PropertiesTest;
+import com.test.payment.order.infrastructure.input.adapter.rest.config.Properties;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -15,7 +15,7 @@ import static com.test.payment.order.util.MockDataUtils.URL_TEST;
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
 @ContextConfiguration(classes = {IllegalArgumentExceptionResolver.class})
-@ImportAutoConfiguration({PropertiesTest.class})
+@ImportAutoConfiguration({Properties.class})
 @SuppressWarnings("java:S2699")
 class IllegalArgumentExceptionResolverTest
         extends ErrorBadRequestResolverTest<IllegalArgumentExceptionResolver> {
