@@ -1,18 +1,12 @@
 package com.test.payment.order.infrastructure.output.adapter.repository.entity;
 
-import com.test.payment.order.domain.Account;
-import com.test.payment.order.domain.InstructedAmount;
-import com.test.payment.order.domain.enums.PaymentOrderStatusEnum;
-import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
 
 @Table("payment_order")
 @ToString

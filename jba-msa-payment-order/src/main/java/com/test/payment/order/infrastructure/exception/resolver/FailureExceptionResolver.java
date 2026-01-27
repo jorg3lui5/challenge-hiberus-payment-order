@@ -10,7 +10,7 @@ public class FailureExceptionResolver extends ErrorResolver<ErrorModel> {
 
     @Override
     protected int status() {
-        return HttpStatus.BAD_REQUEST.value();
+        return HttpStatus.CONFLICT.value();
     }
 
     @NonNull
@@ -19,6 +19,11 @@ public class FailureExceptionResolver extends ErrorResolver<ErrorModel> {
                                     @NonNull final Throwable throwable,
                                     @NonNull final String version) {
         final var exception = (FailureException) throwable;
-        return JsonSerializer.jsonStringToObject(exception.getMessage(), ErrorModel.class);
+        ErrorModel errorModel = exception.getFailure();
+        return new ErrorModel()
+                .title(errorModel.getTitle())
+                .detail(errorModel.getDetail())
+                .type(errorModel.getType())
+                .instance(ErrorUtils.buildErrorCode(HttpStatus.CONFLICT.value()));
     }
 }

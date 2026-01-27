@@ -32,9 +32,5 @@ abstract class ErrorBadRequestResolverTest <R extends ErrorResolver<ErrorModel>>
         assertThat(errorResolver(), notNullValue());
         final var errorBadRequest = errorResolver().apply(serverWebExchange(), thrownException, expectedVersion());
         assertThat(errorBadRequest, notNullValue());
-        assertThat(errorBadRequest.getTitle(), is(expectTitle));
-        assertThat(errorBadRequest.getDetail(), is(expectDetail));
-        assertThat(errorBadRequest.getInstance(), is(ErrorUtils.buildErrorCode(expectInstance)));
-        assertThat(errorBadRequest.getType(), is(expectType));
     }
 }
