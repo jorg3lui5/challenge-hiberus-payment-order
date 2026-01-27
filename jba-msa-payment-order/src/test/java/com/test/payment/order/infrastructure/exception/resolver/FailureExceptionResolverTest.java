@@ -67,7 +67,7 @@ class FailureExceptionResolverTest extends ErrorBadRequestResolverTest<FailureEx
         try {
             JsonSerializer.jsonStringToObject("--{}{}--", ErrorModel.class);
         } catch (Exception e) {
-            Assertions.assertTrue(e instanceof ParsingJsonException);
+            Assertions.assertInstanceOf(ParsingJsonException.class, e);
         }
     }
 }

@@ -1,7 +1,10 @@
 package com.test.payment.order.infrastructure.exception;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.test.payment.order.infrastructure.exception.custom.*;
+import com.test.payment.order.infrastructure.exception.custom.GetRegisterException;
+import com.test.payment.order.infrastructure.exception.custom.ParsingJsonException;
+import com.test.payment.order.infrastructure.exception.custom.RegisterNotFoundException;
+import com.test.payment.order.infrastructure.exception.custom.SaveException;
 import com.test.payment.order.infrastructure.exception.resolver.*;
 import jakarta.annotation.PostConstruct;
 import jakarta.validation.ConstraintViolationException;

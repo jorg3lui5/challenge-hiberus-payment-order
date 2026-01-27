@@ -2,7 +2,6 @@ package com.test.payment.order.infrastructure.exception.resolver;
 
 import com.test.payment.order.infrastructure.input.adapter.rest.bs.bean.ErrorModel;
 import com.test.payment.order.util.ErrorUtils;
-import com.test.payment.order.util.JsonSerializer;
 import org.springframework.http.HttpStatus;
 import org.springframework.lang.NonNull;
 

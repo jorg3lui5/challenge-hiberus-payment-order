@@ -8,7 +8,6 @@ import com.test.payment.order.infrastructure.exception.custom.ParsingJsonExcepti
 import lombok.NonNull;
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 
 @Slf4j
 @UtilityClass
