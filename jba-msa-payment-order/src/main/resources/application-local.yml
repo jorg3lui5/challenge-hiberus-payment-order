@@ -1,0 +1,22 @@
+server:
+  port: 8081
+  error:
+      include-message: always
+spring:
+  #  r2dbc:
+  #    url: r2dbc:postgresql://ec2-3-234-204-26.compute-1.amazonaws.com:5432/d1pvtspeuckn4b?sslMode=require
+  #    password: ff0f67f75c39512c0aa5e2cc2df5ad90e5d791a8984bc8cbc5b912d65d64a0d4
+  #    username: qlrzobvooadkdf
+  r2dbc:
+    url: r2dbc:postgresql://dpg-cvctll3v2p9s73c9r0eg-a.oregon-postgres.render.com:5432/jorgebarretopostgres?sslMode=require
+    password: qBPeomkCTjHFKUy6UKwMNSfeIyc0zBJC
+    username: username
+#  r2dbc:
+#    url: r2dbc:postgresql://db:5432/database
+#    username: username
+#    password: password
+
+test:
+  payment-order:
+    orders:
+      path: /payment-orders

@@ -1,0 +1,178 @@
+import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
+
+buildscript {
+    dependencies {
+        classpath "org.openapitools:openapi-generator-gradle-plugin:7.4.0"
+        classpath "org.postgresql:postgresql:42.6.0"
+    }
+}
+
+
+plugins {
+    id "jacoco"
+    id 'java'
+    id "org.springframework.boot" version "3.5.7"
+    id "io.spring.dependency-management" version "1.1.7"
+    id 'org.openapi.generator' version '7.9.0'
+    id "info.solidsoft.pitest" version "1.9.0"
+}
+
+jacoco {
+    toolVersion = "0.8.12"
+}
+
+def packageName = 'com.test.payment.order'
+def dirName = 'com/test/payment/order'
+
+springBoot {
+    mainClass = "${packageName}.PaymentOrderMainApplication"
+}
+
+group = "${packageName}"
+version = '1.0.1'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+ext["log4j2.version"] = "2.21.1"
+ext["jackson.version"] = "2.16.0"
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    mapstructVersion = "1.6.2"
+    lombokVersion = "1.18.40"
+}
+
+
+dependencies {
+    //dependency
+    compileOnly group: "org.projectlombok", name: "lombok", version: "${lombokVersion}"
+
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+
+    //dependency Base
+    implementation "org.springframework.boot:spring-boot-starter-actuator"
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    //dependencies for default
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-core:11.0.12'
+    implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:2.8.12'
+    implementation 'org.apache.commons:commons-lang3:3.18.0'
+
+
+    // MapStruct
+    implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+
+    implementation 'com.google.guava:guava:33.2.1-jre'
+
+    // JDBC Reactive
+    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    //sql-server
+    implementation 'org.postgresql:r2dbc-postgresql'
+    runtimeOnly 'org.postgresql:postgresql'
+    implementation 'javax.persistence:javax.persistence-api:2.2'
+
+    //pitest
+    testImplementation "info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.9.0"
+    testImplementation "org.pitest:pitest-junit5-plugin:1.2.0"
+
+    //test
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+    testImplementation "io.projectreactor:reactor-test"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine"
+    testImplementation "org.xmlunit:xmlunit-core:2.10.0"
+    testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    //mutation test
+    testImplementation "info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.9.0"
+    testImplementation "org.pitest:pitest-junit5-plugin:1.2.0"
+
+}
+
+tasks.register('buildSpringServer', GenerateTask) {
+    generatorName = "spring"
+    inputSpec = "$rootDir/src/main/resources/openapi.yaml".toString()
+    outputDir = layout.buildDirectory.dir("generated").get().asFile.path
+    apiPackage = "${packageName}.infrastructure.input.adapter.rest.bs"
+    modelPackage = "${packageName}.infrastructure.input.adapter.rest.bs.bean"
+    library = "spring-boot"
+    configOptions = [
+            skipDefaultInterface                    : "false",
+            useSpringBoot3                          : "true",
+            useJakartaEe                            : "true",
+            serializableModel                       : "true",
+            dateLibrary                             : "java8",
+            openApiNullable                         : "false",
+            reactive                                : "true",
+            apiFirst                                : "false",
+            delegatePattern                         : "false",
+            configPackage                           : "${packageName}.infrastructure.input.adapter.rest.config",
+            sourceFolder                            : "src/main/java",
+            basePackage                             : "com.test.payment.order",
+            disallowAdditionalPropertiesIfNotPresent: "true",
+            interfaceOnly                           : "true"
+    ]
+}
+
+tasks.register("CreateUnitTest", JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.test.core.ProcessMain'
+}
+
+compileJava {
+    dependsOn buildSpringServer
+    options.compilerArgs += [
+            "-Amapstruct.suppressGeneratorTimestamp=true",
+            "-Amapstruct.suppressGeneratorVersionInfoComment=true",
+            "-Amapstruct.verbose=true",
+            "-Amapstruct.defaultComponentModel=spring"
+    ]
+}
+
+sourceSets.main.java.srcDirs = [
+        layout.buildDirectory.dir("generated/src/main/java").get().asFile.path,
+        layout.buildDirectory.dir("generated/sources/dgs-codegen").get().asFile.path,
+        "src/main/java"
+]
+springBoot {
+    buildInfo()
+}
+
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+
+}
+
+jacocoTestReport {
+    dependsOn test
+    onlyIf {
+        file("$buildDir/jacoco/test.exec").exists()
+    }
+    reports {
+        xml.required = true
+        html.required = true
+        csv.required = true
+    }
+}
