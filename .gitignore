@@ -2,17 +2,17 @@
 HELP.md
 .gradle/
 build/
-!jba-msa-customer-management/gradle/wrapper/gradle-wrapper.jar
-!jba-msa-customer-management/**/src/main/**/build/
-!jba-msa-customer-management/**/src/test/**/build/
+!jba-msa-payment-order/gradle/wrapper/gradle-wrapper.jar
+!jba-msa-payment-order/**/src/main/**/build/
+!jba-msa-payment-order/**/src/test/**/build/
 
 ### Maven ###
 .mvn/
-jba-msa-customer-management/**/target/
-jba-msa-customer-management/**/bin/
-jba-msa-customer-management/**/*.class
-!jba-msa-customer-management/**/src/main/**/target/
-!jba-msa-customer-management/**/src/test/**/target/
+jba-msa-payment-order/**/target/
+jba-msa-payment-order/**/bin/
+jba-msa-payment-order/**/*.class
+!jba-msa-payment-order/**/src/main/**/target/
+!jba-msa-payment-order/**/src/test/**/target/
 
 # Archivos del sistema
 .DS_Store
@@ -27,8 +27,8 @@ jba-msa-customer-management/**/*.class
 .springBeans
 .sts4-cache
 bin/
-!jba-msa-customer-management/**/src/main/**/bin/
-!jba-msa-customer-management/**/src/test/**/bin/
+!jba-msa-payment-order/**/src/main/**/bin/
+!jba-msa-payment-order/**/src/test/**/bin/
 
 ### IntelliJ IDEA ###
 .idea
@@ -36,15 +36,15 @@ bin/
 *.iml
 *.ipr
 out/
-!jba-msa-customer-management/**/src/main/**/out/
-!jba-msa-customer-management/**/src/test/**/out/
+!jba-msa-payment-order/**/src/main/**/out/
+!jba-msa-payment-order/**/src/test/**/out/
 
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
-.jba-msa-customer-management/nb-gradle/
+.jba-msa-payment-order/nb-gradle/
 
 ### VS Code ###
 .vscode/

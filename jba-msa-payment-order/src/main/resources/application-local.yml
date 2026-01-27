@@ -8,9 +8,9 @@ spring:
   #    password: ff0f67f75c39512c0aa5e2cc2df5ad90e5d791a8984bc8cbc5b912d65d64a0d4
   #    username: qlrzobvooadkdf
   r2dbc:
-    url: r2dbc:postgresql://dpg-cvctll3v2p9s73c9r0eg-a.oregon-postgres.render.com:5432/jorgebarretopostgres?sslMode=require
-    password: qBPeomkCTjHFKUy6UKwMNSfeIyc0zBJC
-    username: username
+    url: r2dbc:postgresql://tsdbadmin@hf4k1dp668.ps1ubj9bd0.tsdb.cloud.timescale.com:33285/tsdb?sslmode=require
+    password: f3bwc3ypw8c7azv9
+    username: tsdbadmin
 #  r2dbc:
 #    url: r2dbc:postgresql://db:5432/database
 #    username: username

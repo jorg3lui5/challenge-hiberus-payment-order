@@ -12,7 +12,7 @@ spring:
     allow-bean-definition-overriding: on
     lazy-initialization: on
   web-flux:
-    base-path: /v1/payment-order
+    base-path: /
   jackson:
     default-property-inclusion: non_null
     date-format: yyyy-MM-dd'T'HH:mm:ssZ

@@ -26,7 +26,7 @@ public interface PaymentOrderEntityMapper {
     @Mapping(target = "instructedAmount.currency", source = "currency")
     @Mapping(target = "remittanceInformation", source = "remittanceInformation")
     @Mapping(target = "requestedExecutionDate", source = "executionDate")
-    @Mapping(target = "status", ignore = true)
+    @Mapping(target = "status", source = "status")
     @Mapping(target = "lastUpdate", source = "updatedAt", qualifiedByName = "toOffsetDateTime")
     PaymentOrder entityToPaymentOrder(PaymentOrderEntity source);
 
