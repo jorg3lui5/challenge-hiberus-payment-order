@@ -129,3 +129,9 @@ docker compose up --build -d
 
 ## Open API
 - Archivo `openapi.yml` disponible para referencia y consumo de la API.
+
+---
+
+## Pruebas con Postman Collection.json
+- Archivo `PaymentOrder (BIAN).postman_collection` disponible para consumo de la API.
+- El collection es difererente al entregado debido a que se eligió el SD Payment Order y BIAN indica paths diferentes.
