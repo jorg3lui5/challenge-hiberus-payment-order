@@ -102,6 +102,8 @@ docker compose up --build -d
 - Scripts generados para la creación de tablas en PostgreSQL, basados en las entidades del proyecto.
 - Resolución de Smell code y análisis con Snyk
 - Conexiones a la BD desplegada con Docker
+**NOTA:**  
+Los prompts usados y capturas de pantalla se encuentran en la carpeta /IA
 
 ---
 
