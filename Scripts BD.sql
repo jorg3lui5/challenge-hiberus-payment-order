@@ -1,3 +1,8 @@
+-- Este script crea la tabla payment_order y sus índices.
+-- No es necesario ejecutarlo manualmente:
+-- 1) Si se levanta la aplicación sin Docker, la base de datos ya contiene la tabla.
+-- 2) Si se levanta con Docker, el script inicial de creación de tablas ya se ejecuta automáticamente.
+
 CREATE TABLE IF NOT EXISTS payment_order (
     payment_order_id       BIGSERIAL PRIMARY KEY,
     external_reference     VARCHAR(35) NOT NULL,
