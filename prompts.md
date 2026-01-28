@@ -1,4 +1,4 @@
-
+<img width="921" height="590" alt="image" src="https://github.com/user-attachments/assets/a32224ac-e9d3-49ec-a2bb-75f2a1fc40bf" /><img width="921" height="749" alt="image" src="https://github.com/user-attachments/assets/3ed753f5-d084-4488-902a-0440bfafb505" />
 # Prompts para IA - Proyecto PaymentOrder
 
 ## 1. Generación del contrato a partir del WSDL y el SD PaymentOrder
@@ -53,56 +53,37 @@ Mapstruct of localdatetime to OffsetDateTime
 **Imagen de la nueva respuesta:** 
 ![Nueva Respuesta IA](./IA/prompt06.png)
 
-## 4. Optimización de código y actualización de objetos en pruebas unitarias
+## 3. Actualización a Springboot 3.5.7
 
 **Prompt:** 
-Revisa el código de los servicios y mappers generados para PaymentOrder y optimízalo:
-- Actualiza el acceso a los atributos de los objetos según buenas prácticas.
-- Reemplaza código obsoleto o repetitivo.
-- Mejora la legibilidad de los mappers y servicios.
-- Genera ejemplos de pruebas unitarias que validen correctamente los atributos y estados de los objetos.
-
-**Imagen de la respuesta:** 
-![Respuesta IA](./IA/prompt4.png)
-
-**Análisis de la respuesta:** 
-Describe si la optimización no cubre todos los atributos o pruebas unitarias incompletas.
-
-**Nuevo prompt:** 
-Corrige los servicios y mappers para reflejar los cambios en pruebas unitarias.
-
-**Imagen de la nueva respuesta:** 
-![Nueva Respuesta IA](./IA/prompt4_correccion.png)
-
-
-
+![Nueva Respuesta IA](./IA/prompt07.png)
+![Nueva Respuesta IA](./IA/prompt11.png)
 
 ---
 
-## 6. Implementación y ayuda con test unitarios
+## 4. Implementación y ayuda con test unitarios
 
 **Prompt:** 
 Crea pruebas unitarias usando JUnit y Mockito para los servicios de PaymentOrder:
-- Verifica la creación, actualización y consulta de órdenes de pago.
+- Verifica la creación, y consulta de órdenes de pago.
 - Valida que los mappers transformen correctamente entidades a DTOs y viceversa.
 - Asegúrate de cubrir escenarios de éxito y error.
 - Usa mocks para dependencias externas como base de datos y servicios externos.
 
 **Imagen de la respuesta:** 
-![Respuesta IA](./IA/prompt6.png)
+![Nueva Respuesta IA](./IA/prompt08.png)
 
 **Análisis de la respuesta:** 
-Indica si alguna prueba no cubre los escenarios esperados o si los mocks no funcionan correctamente.
+Se solicitó corregir la forma en la que obtenía los datos del objeto. Es mejor comprobar el objeto y los valores de sus atributos:
 
 **Nuevo prompt:** 
-Corrige las pruebas unitarias para cubrir todos los casos de éxito y error.
-
-**Imagen de la nueva respuesta:** 
-![Nueva Respuesta IA](./IA/prompt6_correccion.png)
+Se quiere en objetos y no en String las validaciones:
+![Nueva Respuesta IA](./IA/prompt09.png)
+![Nueva Respuesta IA](./IA/prompt10.png)
 
 ---
 
-## 7. Scripts generados para la creación de tablas en PostgreSQL
+## 5. Scripts generados para la creación de tablas en PostgreSQL
 
 **Prompt:** 
 Genera scripts SQL para crear tablas en PostgreSQL basadas en las entidades de PaymentOrder:
@@ -112,16 +93,27 @@ Genera scripts SQL para crear tablas en PostgreSQL basadas en las entidades de P
 - Los scripts deben ser ejecutables en un contenedor Docker PostgreSQL.
 
 **Imagen de la respuesta:** 
-![Respuesta IA](./IA/prompt7.png)
+![Respuesta IA](./IA/prompt13.png)
 
 **Análisis de la respuesta:** 
-Verifica si faltan campos, llaves primarias o constraints, y qué se pidió corregir.
+Se pidió scripts para crear la tabla para la base de datos postgres. Para crear los scripts debe basarse en el Entity Generado.
 
 **Nuevo prompt:** 
-Corrige los scripts SQL para asegurar que todas las tablas y constraints estén correctamente definidas.
+![Nueva Respuesta IA](./IA/prompt12.png)
 
-**Imagen de la nueva respuesta:** 
-![Nueva Respuesta IA](./IA/prompt7_correccion.png)
+---
+
+## 6. Ayuda en errores varios.
+
+**Prompt:** 
+
+![Respuesta IA](./IA/prompt14.png)
+![Respuesta IA](./IA/prompt15.png)
+
+**Análisis de la respuesta:** 
+No se solucionó el inconveniente, se le pasó el error.
+**Nuevo prompt:** 
+![Nueva Respuesta IA](./IA/prompt16.png)
 
 ---
 
@@ -135,38 +127,5 @@ Te paso un issue detectado por SonarQube o Snyk. Dame:
 4. Código corregido listo para usar (antes y después).
 Solo responde según el issue que te doy, sin analizar el proyecto completo.
 
-**Imagen de la respuesta:** 
-![Respuesta IA](./IA/prompt8.png)
-
-**Análisis de la respuesta:** 
-Indica si la solución propuesta por la IA corrige totalmente el smell o vulnerabilidad.
-
-**Nuevo prompt:** 
-Solicita correcciones adicionales si la IA no resolvió por completo el issue.
-
-**Imagen de la nueva respuesta:** 
-![Nueva Respuesta IA](./IA/prompt8_correccion.png)
-
----
-
-## 9. Conexiones a la BD desplegada con Docker
-
-**Prompt:** 
-Tengo una conexión a PostgreSQL desplegada con Docker usando R2DBC en Spring Boot, pero da errores al conectar. 
-- Explícame posibles causas del error.
-- Sugiere soluciones concretas para que la conexión funcione.
-- Indica ajustes en configuración, Docker o Spring Boot si aplica.
-- No me des ejemplos genéricos, enfócate en resolver el problema real.
-
-**Imagen de la respuesta:** 
-![Respuesta IA](./IA/prompt9.png)
-
-**Análisis de la respuesta:** 
-Describe la causa del error y si la solución propuesta por la IA funciona correctamente.
-
-**Nuevo prompt:** 
-Corrige la configuración y verifica la conexión a PostgreSQL en Docker.
-
-**Imagen de la nueva respuesta:** 
-![Nueva Respuesta IA](./IA/prompt9_correccion.png)
+![Respuesta IA](./IA/prompt17.png)
 
