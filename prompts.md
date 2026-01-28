@@ -11,7 +11,7 @@ Genera un contrato OpenAPI para un servicio de PaymentOrder basado en el WSDL ad
 - Evita duplicar campos y usa nombres claros y consistentes.
 
 **Imagen de la respuesta:** 
-![Respuesta IA](IA/prompt1.png)
+![Respuesta IA](IA/prompt01.png)
 
 **Análisis de la respuesta:** 
 Aquí puedes describir qué parte de la respuesta no se generó correctamente y qué se pidió nuevamente a la IA.
@@ -20,7 +20,8 @@ Aquí puedes describir qué parte de la respuesta no se generó correctamente y 
 Corrige el contrato OpenAPI para que incluya todos los request/response y estados según BIAN.
 
 **Imagen de la nueva respuesta:** 
-![Nueva Respuesta IA](/IA/prompt1.png)
+![Nueva Respuesta IA](/IA/prompt01.png)
+![Nueva Respuesta IA](./IA/prompt01.png)
 
 ---
 
