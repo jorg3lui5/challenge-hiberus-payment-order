@@ -4,70 +4,54 @@
 ## 1. Generación del contrato a partir del WSDL y el SD PaymentOrder
 
 **Prompt:** 
-Genera un contrato OpenAPI para un servicio de PaymentOrder basado en el WSDL adjunto y el Service Domain PaymentOrder de BIAN.
-- Asegúrate de mapear todos los request y response existentes.
-- Incluye estados y flujos de pago comunes según BIAN.
-- Genera esquemas correctos para cada DTO siguiendo buenas prácticas de OpenAPI.
-- Evita duplicar campos y usa nombres claros y consistentes.
-
-**Imagen de la respuesta:** 
 ![Respuesta IA](IA/prompt01.png)
 
-**Análisis de la respuesta:** 
-Aquí puedes describir qué parte de la respuesta no se generó correctamente y qué se pidió nuevamente a la IA.
+**Imagen de la respuesta:** 
+![Respuesta IA](IA/prompt011.png)
+![Nueva Respuesta IA](/IA/prompt012.png)
 
-**Nuevo prompt:** 
-Corrige el contrato OpenAPI para que incluya todos los request/response y estados según BIAN.
+**Análisis de la respuesta:** 
+En este caso se hicieron correcciones porque no me generó los esquemas con respecto al SD PaymentOrder. Se corrigió:
 
 **Imagen de la nueva respuesta:** 
-![Nueva Respuesta IA](/IA/prompt01.png)
-![Nueva Respuesta IA](./IA/prompt01.png)
-
----
-
-## 2. Corrección de esquemas basados en request/response de Postman
-
-**Prompt:** 
-Corrige los esquemas del contrato OpenAPI generado anteriormente usando los ejemplos de request y response del archivo Postman Collection.
-- Mantén consistencia con los tipos de datos esperados.
-- Asegúrate que todos los campos requeridos estén presentes.
-- Aplica validaciones básicas de tipos y formatos (string, date-time, integer, etc.).
-- Revisa que coincidan con los endpoints reales del servicio.
-
-**Imagen de la respuesta:** 
-![Respuesta IA](./IA/prompt2.png)
+![Nueva Respuesta IA](/IA/prompt02.png)
 
 **Análisis de la respuesta:** 
-Indica si hubo campos faltantes o errores en los tipos de datos y qué se pidió corregir.
+Se corrigió para que se base en el request y response de los ejemplos.
 
 **Nuevo prompt:** 
 Corrige los esquemas según los ejemplos de Postman para asegurar consistencia total.
 
 **Imagen de la nueva respuesta:** 
-![Nueva Respuesta IA](./IA/prompt2_correccion.png)
+![Nueva Respuesta IA](./IA/prompt03.png)
 
----
-
-## 3. Definición de estados y flujos de pago según BIAN
-
-**Prompt:** 
-Agrega los estados y flujos de pago al contrato y a los DTOs siguiendo el Service Domain PaymentOrder de BIAN.
-- Asocia cada estado con los posibles eventos o transiciones de flujo.
-- Asegúrate que los estados sean consistentes en todos los endpoints y DTOs.
-
-**Imagen de la respuesta:** 
-![Respuesta IA](./IA/prompt3.png)
-
-**Análisis de la respuesta:** 
-Indica si algún estado o transición de flujo no fue incluido correctamente.
+**Imagenes adicionales:** 
+![Nueva Respuesta IA](./IA/prompt04.png)
+![Nueva Respuesta IA](./IA/prompt05.png)
 
 **Nuevo prompt:** 
-Asegúrate de agregar todos los estados y transiciones según el SD PaymentOrder.
-
-**Imagen de la nueva respuesta:** 
-![Nueva Respuesta IA](./IA/prompt3_correccion.png)
+Esto se logró comprobando la información oficial de BIAN.
 
 ---
+
+## 2. Mapeo de datos para transformar entidades a DTOs y viceversa
+
+**Prompt:** 
+Genera mappers usando MapStruct para transformar entidades de PaymentOrder a DTOs y viceversa:
+- Asegúrate de mapear todos los campos relevantes.
+- Ignora campos que no deban persistir.
+- Incluye lógica para transformar fechas y estados correctamente.
+- Mantén la consistencia con el contrato OpenAPI generado.
+
+**Análisis de la respuesta:** 
+las fechas/estados no se transformaron como se esperaba.
+
+**Nuevo prompt:** 
+Realiza con MapStruct lo siguiente:
+Mapstruct of localdatetime to OffsetDateTime
+
+**Imagen de la nueva respuesta:** 
+![Nueva Respuesta IA](./IA/prompt06.png)
 
 ## 4. Optimización de código y actualización de objetos en pruebas unitarias
 
@@ -91,26 +75,7 @@ Corrige los servicios y mappers para reflejar los cambios en pruebas unitarias.
 ![Nueva Respuesta IA](./IA/prompt4_correccion.png)
 
 
-## 5. Mapeo de datos para transformar entidades a DTOs y viceversa
 
-**Prompt:** 
-Genera mappers usando MapStruct para transformar entidades de PaymentOrder a DTOs y viceversa:
-- Asegúrate de mapear todos los campos relevantes.
-- Ignora campos que no deban persistir.
-- Incluye lógica para transformar fechas y estados correctamente.
-- Mantén la consistencia con el contrato OpenAPI generado.
-
-**Imagen de la respuesta:** 
-![Respuesta IA](./IA/prompt5.png)
-
-**Análisis de la respuesta:** 
-Describe si algún campo no se mapeó correctamente o si las fechas/estados no se transformaron como se esperaba.
-
-**Nuevo prompt:** 
-Corrige los mappers para asegurar que todas las entidades y DTOs estén correctamente transformados.
-
-**Imagen de la nueva respuesta:** 
-![Nueva Respuesta IA](./IA/prompt5_correccion.png)
 
 ---
 
