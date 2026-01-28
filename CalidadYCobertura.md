@@ -3,15 +3,15 @@
 ## 1. Cobertura
 
 **Análisis Local:** 
-!(Calidad_y_cobertura/Cobertura01.png)
+(Calidad_y_cobertura/Cobertura01.png)
 
 **Análisis con Sonar:** 
-!(Calidad_y_cobertura/Cobertura02.png)
+(Calidad_y_cobertura/Cobertura02.png)
 
 ## 2. Calidad, ISSUES, smell code, etc.
 
 **Análisis con Sonar:** 
-!(Calidad_y_cobertura/Calidad.png)
+(Calidad_y_cobertura/Calidad.png)
 
 ## 3. Conclusión
 
