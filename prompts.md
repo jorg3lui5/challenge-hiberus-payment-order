@@ -1,4 +1,3 @@
-<img width="921" height="590" alt="image" src="https://github.com/user-attachments/assets/a32224ac-e9d3-49ec-a2bb-75f2a1fc40bf" /><img width="921" height="749" alt="image" src="https://github.com/user-attachments/assets/3ed753f5-d084-4488-902a-0440bfafb505" />
 # Prompts para IA - Proyecto PaymentOrder
 
 ## 1. Generación del contrato a partir del WSDL y el SD PaymentOrder
