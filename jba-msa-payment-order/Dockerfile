@@ -1,9 +1,10 @@
-FROM eclipse-temurin:17-jdk-alpine
-
+FROM gradle:8.5-jdk17-alpine AS build
 WORKDIR /app
+COPY . .
+RUN gradle build -x tes
 
-COPY build/libs/jba-msa-payment-order-1.0.1.jar app.jar
-
+FROM eclipse-temurin:17-jdk-alpine
+WORKDIR /app
+COPY --from=build /app/build/libs/*.jar app.jar
 EXPOSE 8081
-
-CMD ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]

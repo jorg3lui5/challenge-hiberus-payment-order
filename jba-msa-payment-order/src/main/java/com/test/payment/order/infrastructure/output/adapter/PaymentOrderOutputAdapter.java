@@ -35,9 +35,9 @@ public class PaymentOrderOutputAdapter implements PaymentOrderOutputPort {
     {
         log.info("Starts getting payment order with paymentOrderId: {}", paymentOrderId);
         return paymentOrderRepository.findByPaymentOrderId(TransformUtils.deletePrefixPaymentOrderId(paymentOrderId))
-                .switchIfEmpty(Mono.error(new RegisterNotFoundException()))
                 .doOnError(error->log.error("Error retrieving payment order by ID, detail: {}", error.getMessage()))
                 .onErrorMap(error->new GetRegisterException())
+                .switchIfEmpty(Mono.error(new RegisterNotFoundException()))
                 .map(paymentOrderEntityMapper::entityToPaymentOrder)
                 .doOnSuccess(success->log.info("Payment order retrieved successfully."));
     }
