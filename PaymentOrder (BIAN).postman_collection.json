@@ -1,0 +1,81 @@
+{
+  "info": {
+    "_postman_id": "7802dd56-e67b-4867-b72e-715372b403ad",
+    "name": "PaymentOrder (BIAN)",
+    "description": "Colección mínima para validar el microservicio migrado (sin SOAP).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "14808479"
+  },
+  "item": [
+    {
+      "name": "POST Initiate PaymentOrder",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"externalReference\": \"EXT-1\",\n    \"debtorAccount\": {\n        \"iban\": \"EC12DEBTOR\"\n    },\n    \"creditorAccount\": {\n        \"iban\": \"EC98CREDITOR\"\n    },\n    \"instructedAmount\": {\n        \"amount\": 150.75,\n        \"currency\": \"USD\"\n    },\n    \"remittanceInformation\": \"Factura 001-123\",\n    \"requestedExecutionDate\": \"2025-10-31\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8081/payment-orders/initiate",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "payment-orders",
+            "initiate"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Retrieve PaymentOrder",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8081/payment-orders/PO-1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "payment-orders",
+            "PO-1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Retrieve PaymentOrder Status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8081/payment-orders/PO-1/status",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "payment-orders",
+            "PO-1",
+            "status"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
