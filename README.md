@@ -133,5 +133,5 @@ docker compose up --build -d
 ---
 
 ## Pruebas con Postman Collection.json
-- Archivo `PaymentOrder (BIAN).postman_collection` disponible para consumo de la API.
+- Importar en Postman el archivo `PaymentOrder (BIAN).postman_collection` para consumo de la API.
 - El collection es difererente al entregado debido a que se eligió el SD Payment Order y BIAN indica paths diferentes.
