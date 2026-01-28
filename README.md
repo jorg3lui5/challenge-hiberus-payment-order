@@ -108,7 +108,6 @@ docker compose up --build -d
 ## Pruebas Unitarias e Integración
 - Pruebas unitarias en servicios, validaciones y flujos.
 - Cobertura de código: **98.2%** según SonarQube.
-- Sin issues de seguridad, fiabilidad o mantenimiento detectados.
 - Uso de SonarQube Community Edition para control de calidad.
 
 ---
@@ -120,8 +119,8 @@ docker compose up --build -d
 ---
 
 ## Calidad
-- Análisis de **smell code** y seguridad con **Snyk**.
-- Cobertura y calidad de código verificada con **SonarQube**.
+- Análisis de seguridad con **Snyk**.
+- **smell code** y calidad de código verificada con **SonarQube**.
 
 ---
 
