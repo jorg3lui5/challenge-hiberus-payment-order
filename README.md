@@ -4,6 +4,9 @@
 ## Repositorio
 [https://github.com/jorg3lui5/challenge-hiberus-payment-order](https://github.com/jorg3lui5/challenge-hiberus-payment-order)
 
+## Código Fuente
+El proyecto en Spring Boot o código fuente está en la carpeta: **jba-msa-payment-order**
+
 ---
 
 ## Contexto del Proyecto
