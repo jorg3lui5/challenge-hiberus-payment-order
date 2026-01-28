@@ -97,11 +97,11 @@ docker compose up --build -d
 - Corrección de esquemas basados en request/response de Postman.
 - Definición de estados y flujos de pago según BIAN.
 - Optimización de código y actualización de objetos en pruebas unitarias.
-
----
-
-## Mapeo de Datos
-- Uso de **MapStruct** para transformar entidades a DTOs y viceversa.
+- Mapeo de datos para transformar entidades a DTOs y viceversa.
+- Implementación y ayuda con test unitarios
+- Scripts generados para la creación de tablas en PostgreSQL, basados en las entidades del proyecto.
+- Resolución de Smell code y análisis con Snyk
+- Conexiones a la BD desplegada con Docker
 
 ---
 
@@ -110,12 +110,6 @@ docker compose up --build -d
 - Cobertura de código: **98.2%** según SonarQube.
 - Sin issues de seguridad, fiabilidad o mantenimiento detectados.
 - Uso de SonarQube Community Edition para control de calidad.
-
----
-
-## Scripts de Base de Datos
-- Scripts generados para la creación de tablas en PostgreSQL, basados en las entidades del proyecto.
-- Conexión a la BD en Docker para pruebas locales.
 
 ---
 
